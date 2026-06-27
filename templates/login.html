@@ -1,50 +1,87 @@
 {% extends 'base.html' %}
 
 {% block title %}
-Login
+Student Login | MessVision
 {% endblock %}
 
 {% block content %}
 
-<section class="login-container">
+<section class="login-section">
 
-    <h2>Student Login</h2>
+    <div class="login-card">
 
-    <form action="{{ url_for('login') }}" method="POST">
+        <h2>Welcome Back!</h2>
 
-        <!-- Email -->
-        <label for="email">Email Address</label>
-        <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Enter your email"
-            title="Enter your registered email address"
-            required
-        >
+        <p class="form-subtitle">
+            Login to access your MessVision dashboard and submit your hostel mess feedback.
+        </p>
 
-        <!-- Password -->
-        <label for="password">Password</label>
-        <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Enter your password"
-            title="Enter your account password"
-            required
-        >
+        <form action="{{ url_for('login') }}" method="POST">
 
-        <!-- Login Button -->
-        <button type="submit">
-            Login
-        </button>
+            <!-- Email Address -->
+            <div class="form-group">
 
-    </form>
+                <label for="email">College Email</label>
 
-    <p class="register-link">
-        New User?
-        <a href="{{ url_for('register') }}">Register Here</a>
-    </p>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@student.edu"
+                    title="Enter your registered email address"
+                    autocomplete="email"
+                    required>
+
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    title="Enter your account password"
+                    autocomplete="current-password"
+                    required>
+
+            </div>
+
+            <!-- Remember Me & Forgot Password -->
+            <div class="form-options">
+
+                <label class="remember-me">
+
+                    <input
+                        type="checkbox"
+                        name="remember">
+
+                    Remember Me
+
+                </label>
+
+                <a href="#" class="forgot-password">
+                    Forgot Password?
+                </a>
+
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="btn btn-primary">
+                Login
+            </button>
+
+        </form>
+
+        <p class="register-link">
+            Don't have an account?
+            <a href="{{ url_for('register') }}">Register Here</a>
+        </p>
+
+    </div>
 
 </section>
 

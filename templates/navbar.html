@@ -1,15 +1,45 @@
-<nav>
-    <div class="Logo">
-        <h2>MessVision</h2>
+<nav class="navbar">
+
+    <div class="logo">
+
+        <a href="{{ url_for('home') }}">
+            <h2>MessVision</h2>
+        </a>
 
     </div>
-    <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/menu">Menu</a></li>
-        <li><a href="/feedback">Feedback</a></li>
-        <li><a href="/reports">Reports</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="/login">Login</a></li>
+
+    <ul class="nav-links">
+
+        <li>
+            <a href="{{ url_for('home') }}">Home</a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('menu') }}">Menu</a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('feedback') }}">Feedback</a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('reports') }}">Reports</a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('about') }}">About</a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </li>
+
+        <li>
+            <a href="{{ url_for('login') }}" class="login-btn">
+                Login
+            </a>
+        </li>
+
     </ul>
+
 </nav>
