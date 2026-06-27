@@ -1,15 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Hostel Mess Feedback System</title>
-</head>
-<body>
-    
-<a href="/login">Login</a>
-<br><br>
-<a href="/register">Register</a>
-</body>
-</html>
+{% extends 'base.html' %}
 
+{% block title %}
+
+Home
+
+{% endblock %}
+
+{% block content %}
+
+<section>
+
+    <h1>Welcome to MessVision</h1>
+
+    <p>
+
+        Smart Hostel Mess Feedback System for Students.
+
+    </p>
+
+    <a href="/feedback">
+
+        Give Feedback
+
+    </a>
+
+</section>
+
+{% endblock %}
