@@ -1,4 +1,4 @@
-#
+
 from flask import Flask, render_template
 
 app = Flask(__name__)
@@ -22,10 +22,10 @@ def student_dashboard():
 @app.route("/admin_dashboard")
 def admin_dashboard():
     return render_template("admin_dashboard.html")
-app.route("/feedback")
+@app.route("/feedback")
 def feedback():
     return render_template("feedback.html")
-app.route("/student_dashboard")
+@app.route("/student_dashboard")
 def feedback_history():
     return render_template("feedback_history.html")
 @app.route("/menu")

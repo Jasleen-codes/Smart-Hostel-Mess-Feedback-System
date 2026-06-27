@@ -1,22 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-    <title>Login</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-<h2>Student Login</h2>
+{% block title %}
+Login
+{% endblock %}
 
-<form>
-    <input type="email" placeholder="Email">
-    <br><br>
+{% block content %}
 
-    <input type="password" placeholder="Password">
-    <br><br>
+<section class="login-container">
 
-    <button type="submit">Login</button>
-</form>
+    <h2>Student Login</h2>
 
-</body>
-</html>
+    <form action="{{ url_for('login') }}" method="POST">
+
+        <!-- Email -->
+        <label for="email">Email Address</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            title="Enter your registered email address"
+            required
+        >
+
+        <!-- Password -->
+        <label for="password">Password</label>
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            title="Enter your account password"
+            required
+        >
+
+        <!-- Login Button -->
+        <button type="submit">
+            Login
+        </button>
+
+    </form>
+
+    <p class="register-link">
+        New User?
+        <a href="{{ url_for('register') }}">Register Here</a>
+    </p>
+
+</section>
+
+{% endblock %}
