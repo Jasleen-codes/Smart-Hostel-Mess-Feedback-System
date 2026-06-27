@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Student Registration | MessVision
+{% endblock %}
+
+{% block content %}
+
+<section class="register-section">
+
+    <div class="register-card">
+
+        <h2>Create Your Account</h2>
+
+        <p class="form-subtitle">
+            Register to submit hostel mess feedback and access your dashboard.
+        </p>
+
+        <form action="{{ url_for('register') }}" method="POST">
+
+            <!-- Full Name -->
+            <div class="form-group">
+
+                <label for="fullname">Full Name</label>
+
+                <input
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    placeholder="Enter your full name"
+                    title="Enter your full name"
+                    autocomplete="name"
+                    required>
+
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+
+                <label for="email">College Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="example@student.edu"
+                    title="Enter your college email address"
+                    autocomplete="email"
+                    required>
+
+            </div>
+
+            <!-- Hostel Room -->
+            <div class="form-group">
+
+                <label for="room">Hostel Room Number</label>
+
+                <input
+                    type="text"
+                    id="room"
+                    name="room"
+                    placeholder="e.g. A-204"
+                    title="Enter your hostel room number"
+                    required>
+
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a strong password"
+                    title="Password must contain at least 8 characters"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required>
+
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="form-group">
+
+                <label for="confirm_password">Confirm Password</label>
+
+                <input
+                    type="password"
+                    id="confirm_password"
+                    name="confirm_password"
+                    placeholder="Re-enter your password"
+                    title="Confirm your password"
+                    minlength="8"
+                    autocomplete="new-password"
+                    required>
+
+            </div>
+
+            <!-- Register Button -->
+            <button type="submit" class="btn btn-primary">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="login-link">
+            Already have an account?
+            <a href="{{ url_for('login') }}">Login Here</a>
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

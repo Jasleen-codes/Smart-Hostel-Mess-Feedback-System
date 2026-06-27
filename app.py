@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template
+from flask import Flask, render_template,request
 
 app = Flask(__name__)
 
@@ -7,12 +7,19 @@ app = Flask(__name__)
 def home():
     return render_template("index.html")
 
-@app.route("/login")
+@app.route("/login",methods=["GET","POST"])
 def login():
+
+    if request.method=="POST":
+        # adding later updates 
+        print("Login button clicked!")
+
     return render_template("login.html")
 
-@app.route("/register")
+@app.route("/register",methods=["GET","POST"])
 def register():
+    if request.method =="POST":
+        print("Register button clicked!")
     return render_template("register.html")
 
 @app.route("/student_dashboard")
