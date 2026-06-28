@@ -1,46 +1,30 @@
 <nav class="navbar">
 
-    <div class="logo">
+    <div class="nav-container">
 
-        <a href="{{ url_for('home') }}">
-            <h2>MessVision</h2>
+        <!-- Brand -->
+        <a href="{{ url_for('home') }}" class="logo">
+            🍽 MessVision
         </a>
 
+        <!-- Links -->
+        <ul class="nav-links">
+
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('menu') }}">Menu</a></li>
+            <li><a href="{{ url_for('feedback') }}">Feedback</a></li>
+            <li><a href="{{ url_for('reports') }}">Reports</a></li>
+
+        </ul>
+
+        <!-- Right Actions -->
+        <div class="nav-actions">
+
+            <a href="{{ url_for('login') }}" class="nav-btn outline">Login</a>
+            <a href="{{ url_for('register') }}" class="nav-btn primary">Register</a>
+
+        </div>
+
     </div>
-
-    <ul class="nav-links">
-
-        <li>
-            <a href="{{ url_for('home') }}">Home</a>
-        </li>
-       
-        <li>
-            <a href="{{ url_for('menu') }}">Menu</a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('feedback') }}">Feedback</a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('reports') }}">Reports</a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('about') }}">About</a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('contact') }}">Contact</a>
-        </li>
-
-        <li>
-            <a href="{{ url_for('login') }}" class="login-btn">
-                Login
-            </a>
-           
-        </li>
-
-    </ul>
 
 </nav>

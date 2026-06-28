@@ -6,80 +6,66 @@ Student Login | MessVision
 
 {% block content %}
 
-<section class="login-section">
+<section class="login-canvas">
 
-    <div class="login-card">
+    <!-- 🎯 REAL CANVAS BACKGROUND -->
+    <canvas id="bgCanvas"></canvas>
 
-        <h2>Welcome Back!</h2>
+    <!-- Glow overlay -->
+    <div class="canvas-glow"></div>
 
-        <p class="form-subtitle">
-            Login to access your MessVision dashboard and submit your hostel mess feedback.
-        </p>
+    <div class="canvas-grid">
 
-        <form action="{{ url_for('login') }}" method="POST">
+        <!-- LEFT PANEL -->
+        <div class="canvas-info">
 
-            <!-- Email Address -->
-            <div class="form-group">
+            <h1 class="logo">MessVision</h1>
+            <p class="tagline">Smart Hostel Mess Feedback System</p>
 
-                <label for="email">College Email</label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="example@student.edu"
-                    title="Enter your registered email address"
-                    autocomplete="email"
-                    required>
-
+            <div class="info-cards">
+                <div class="info-card">🍽️ Rate meals with ease</div>
+                <div class="info-card">📊 Track mess quality trends</div>
+                <div class="info-card">⚡ Improve hostel food system</div>
             </div>
 
-            <!-- Password -->
-            <div class="form-group">
+        </div>
 
-                <label for="password">Password</label>
+        <!-- RIGHT LOGIN CARD -->
+        <div class="canvas-card">
 
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    title="Enter your account password"
-                    autocomplete="current-password"
-                    required>
+            <h2>Welcome Back 👋</h2>
+            <p class="subtitle">Login to continue</p>
 
-            </div>
+            <form method="POST">
 
-            <!-- Remember Me & Forgot Password -->
-            <div class="form-options">
+                <div class="input-box">
+                    <label>Email</label>
+                    <input type="email" name="email" required>
+                </div>
 
-                <label class="remember-me">
+                <div class="input-box">
+                    <label>Password</label>
+                    <input type="password" name="password" required>
+                </div>
 
-                    <input
-                        type="checkbox"
-                        name="remember">
+                <div class="option-panel">
+                    <label>
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
 
-                    Remember Me
+                    <a href="#">Forgot?</a>
+                </div>
 
-                </label>
+                <button class="login-btn">Sign In</button>
 
-                <a href="#" class="forgot-password">
-                    Forgot Password?
-                </a>
+            </form>
 
-            </div>
+            <p class="bottom-text">
+                New user? <a href="{{ url_for('register') }}">Create account</a>
+            </p>
 
-            <!-- Login Button -->
-            <button type="submit" class="btn btn-primary">
-                Login
-            </button>
-
-        </form>
-
-        <p class="register-link">
-            Don't have an account?
-            <a href="{{ url_for('register') }}">Register Here</a>
-        </p>
+        </div>
 
     </div>
 
