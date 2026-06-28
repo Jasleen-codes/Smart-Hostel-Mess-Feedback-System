@@ -6,26 +6,30 @@ Student Login | MessVision
 
 {% block content %}
 
-<<<<<<< HEAD
 <section class="login-page">
 
-    <!-- Animated Canvas -->
+    <!-- Background Canvas -->
     <canvas id="bgCanvas"></canvas>
 
+    <!-- Dark Overlay -->
     <div class="overlay"></div>
 
+    <!-- Main Container -->
     <div class="login-container">
 
-        <!-- LEFT SIDE -->
+        <!-- LEFT PANEL -->
         <div class="left-panel">
 
-            <h1 class="logo">🍽 MessVision</h1>
+            <h1>🍽 MessVision</h1>
 
-            <h2>Smart Hostel<br>Mess Feedback</h2>
+            <h2>
+                Smart Hostel <br>
+                Mess Feedback
+            </h2>
 
             <p>
-                Improve food quality through
-                student feedback and analytics.
+                Improve food quality through student feedback,
+                ratings and real-time analytics.
             </p>
 
             <div class="features">
@@ -41,35 +45,12 @@ Student Login | MessVision
                 <div class="feature">
                     ⚡ Faster Improvements
                 </div>
-=======
-<section class="login-canvas">
 
-    <!-- 🎯 REAL CANVAS BACKGROUND -->
-    <canvas id="bgCanvas"></canvas>
-
-    <!-- Glow overlay -->
-    <div class="canvas-glow"></div>
-
-    <div class="canvas-grid">
-
-        <!-- LEFT PANEL -->
-        <div class="canvas-info">
-
-            <h1 class="logo">MessVision</h1>
-            <p class="tagline">Smart Hostel Mess Feedback System</p>
->>>>>>> 25740712bbfb97f9bcb6962efb97e39114a0965a
-
-            <div class="info-cards">
-                <div class="info-card">🍽️ Rate meals with ease</div>
-                <div class="info-card">📊 Track mess quality trends</div>
-                <div class="info-card">⚡ Improve hostel food system</div>
             </div>
 
         </div>
 
-<<<<<<< HEAD
-        <!-- LOGIN CARD -->
-
+        <!-- RIGHT LOGIN CARD -->
         <div class="login-card">
 
             <h2>Welcome Back 👋</h2>
@@ -120,11 +101,10 @@ Student Login | MessVision
 
                 <div class="options">
 
-                    <label for="remember">
+                    <label>
 
                         <input
                             type="checkbox"
-                            id="remember"
                             name="remember">
 
                         Remember Me
@@ -153,73 +133,6 @@ Student Login | MessVision
                     Register Now
                 </a>
 
-=======
-        <!-- RIGHT LOGIN CARD -->
-        <div class="canvas-card">
-
-            <h2>Welcome Back 👋</h2>
-            <p class="subtitle">Login to continue</p>
-
-            <form method="POST">
-
-    <div class="input-group">
-
-        <label for="email">Email Address</label>
-
-        <div class="input-field">
-            <span>📧</span>
-
-            <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email"
-                required>
-        </div>
-
-    </div>
-
-    <div class="input-group">
-
-        <label for="password">Password</label>
-
-        <div class="input-field">
-            <span>🔒</span>
-
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                required>
-        </div>
-
-    </div>
-
-    <div class="options">
-
-        <label for="remember">
-            <input
-                type="checkbox"
-                id="remember"
-                name="remember">
-            Remember Me
-        </label>
-
-        <a href="#">Forgot Password?</a>
-
-    </div>
-
-    <button
-        type="submit"
-        class="login-btn">
-        Sign In
-    </button>
-
-</form>
-
-            <p class="bottom-text">
-                New user? <a href="{{ url_for('register') }}">Create account</a>
             </p>
 
         </div>

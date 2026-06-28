@@ -461,10 +461,11 @@
     border-radius: 18px;
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
+p{
+    color: white;
+}
 
-/* =========================
-   ANIMATION
-========================= */
+
 @keyframes floatGlow {
     from { transform: scale(1); }
     to { transform: scale(1.1); }
@@ -488,7 +489,6 @@
     color: #111827;
 }
 
-/* subtle background glow */
 .global-bg {
     position: fixed;
     inset: 0;
@@ -498,7 +498,7 @@
     z-index: -1;
 }
 
-/* MAIN WRAPPER */
+
 .app-main {
     min-height: calc(100vh - 140px);
     padding: 20px 0;
@@ -512,7 +512,7 @@
     padding: 0 20px;
 }
 
-/* HEADER FIX */
+/* HEADER */
 .app-header {
     position: sticky;
     top: 0;
@@ -538,7 +538,7 @@
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
-/* MAIN STRUCTURE FIX */
+
 .nav-container {
     max-width: 1200px;
     margin: auto;
@@ -558,7 +558,7 @@
     text-decoration: none;
 }
 
-/* NAV LINKS (THIS FIXES YOUR MAIN ISSUE) */
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -1047,4 +1047,70 @@ font-size:2.3rem;
 
 }
 
+}
+.features,
+.steps,
+.quick-links,
+.about-preview{
+    padding:90px 20px;
+    text-align:center;
+}
+
+.features h2,
+.steps h2,
+.quick-links h2,
+.about-preview h2{
+    color:white;
+    font-size:2.3rem;
+    margin-bottom:50px;
+    font-weight:700;
+}.feature-container,
+.steps-container,
+.quick-links-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    max-width:1200px;
+
+    margin:auto;
+}.feature-card,
+.step-card,
+.quick-card{
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    border-radius:18px;
+
+    padding:30px;
+
+    transition:.35s;
+
+    color:white;
+
+   
+
+    box-shadow:0 15px 40px rgba(0,0,0,.25);
+}.feature-card:hover,
+.step-card:hover,
+.quick-card:hover{
+
+    transform:translateY(-10px);
+
+    border-color:#2563eb;
+
+    box-shadow:0 25px 60px rgba(37,99,235,.35);
+}.feature-card p,
+.step-card p{
+
+    color:#cbd5e1;
+
+    margin-top:15px;
+
+    line-height:1.7;
 }
