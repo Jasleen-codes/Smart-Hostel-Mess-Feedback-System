@@ -88,6 +88,281 @@
 .section {
     padding: 80px 20px;
     text-align: center;
+
+}
+
+.dark-section {
+    background: #2b52a1;
+    color: white;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.section-title.light {
+    color: white;
+}
+
+/* =========================
+   GRID SYSTEM
+========================= */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =========================
+   CARDS
+========================= */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+}
+
+.feature-card p {
+    color: #6b7280;
+}
+
+.glass-card {
+    background: rgba(255,255,255,0.08);
+    
+    border: 1px solid rgba(255,255,255,0.1);
+    color: white;
+}
+
+/* =========================
+   QUICK LINKS
+========================= */
+.quick-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #111827;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.quick-card:hover {
+    transform: translateY(-5px);
+    background: #2563eb;
+    color: white;
+}
+
+/* =========================
+   ABOUT
+========================= */
+.about-section {
+    padding: 80px 20px;
+    background: #f8fafc;
+}
+
+.about-card {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes floatGlow {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+/* =========================
+   APP SHELL STRUCTURE
+========================= */
+
+.app-body {
+    font-family: "Poppins", sans-serif;
+    background: #0b1220;
+    color: #111827;
+}
+
+/* subtle background glow */
+.global-bg {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(37,99,235,0.15), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(250,204,21,0.10), transparent 40%);
+    z-index: -1;
+}
+
+/* MAIN WRAPPER */
+.app-main {
+    min-height: calc(100vh - 140px);
+    padding: 20px 0;
+}
+
+/* page container */
+.page-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+}
+
+/* HEADER FIX */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* FOOTER STYLE */
+.app-footer {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+    color: #94a3b8;
+    background: #0f172a;
+}
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+
+    background: rgba(10, 15, 30, 0.85);
+    
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+/* MAIN STRUCTURE FIX */
+.nav-container {
+    max-width: 1200px;
+    margin: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 20px;
+}
+
+/* LOGO */
+.logo {
+    color: #facc15;
+    font-weight: 700;
+    font-size: 1.4rem;
+    text-decoration: none;
+}
+
+/* NAV LINKS (THIS FIXES YOUR MAIN ISSUE) */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-weight: 500;
+    position: relative;
+}
+
+/* hover underline */
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #facc15;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #facc15;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* RIGHT BUTTONS */
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* BUTTONS */
+.nav-btn {
+    padding: 8px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* LOGIN */
+.nav-btn.outline {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: white;
+}
+
+/* REGISTER */
+.nav-btn.primary {
+    background: #2563eb;
+    color: white;
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
 }
 
 .dark-section {
