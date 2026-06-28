@@ -6,80 +6,133 @@ Student Login | MessVision
 
 {% block content %}
 
-<section class="login-section">
+<section class="login-page">
 
-    <div class="login-card">
+    <!-- Animated Canvas -->
+    <canvas id="bgCanvas"></canvas>
 
-        <h2>Welcome Back!</h2>
+    <div class="overlay"></div>
 
-        <p class="form-subtitle">
-            Login to access your MessVision dashboard and submit your hostel mess feedback.
-        </p>
+    <div class="login-container">
 
-        <form action="{{ url_for('login') }}" method="POST">
+        <!-- LEFT SIDE -->
+        <div class="left-panel">
 
-            <!-- Email Address -->
-            <div class="form-group">
+            <h1 class="logo">🍽 MessVision</h1>
 
-                <label for="email">College Email</label>
+            <h2>Smart Hostel<br>Mess Feedback</h2>
 
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="example@student.edu"
-                    title="Enter your registered email address"
-                    autocomplete="email"
-                    required>
+            <p>
+                Improve food quality through
+                student feedback and analytics.
+            </p>
 
-            </div>
+            <div class="features">
 
-            <!-- Password -->
-            <div class="form-group">
+                <div class="feature">
+                    ⭐ Rate every meal
+                </div>
 
-                <label for="password">Password</label>
+                <div class="feature">
+                    📊 Live Analytics
+                </div>
 
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    title="Enter your account password"
-                    autocomplete="current-password"
-                    required>
+                <div class="feature">
+                    ⚡ Faster Improvements
+                </div>
 
             </div>
 
-            <!-- Remember Me & Forgot Password -->
-            <div class="form-options">
+        </div>
 
-                <label class="remember-me">
+        <!-- LOGIN CARD -->
 
-                    <input
-                        type="checkbox"
-                        name="remember">
+        <div class="login-card">
 
-                    Remember Me
+            <h2>Welcome Back 👋</h2>
 
-                </label>
+            <p class="subtitle">
+                Login to your account
+            </p>
 
-                <a href="#" class="forgot-password">
-                    Forgot Password?
+            <form method="POST">
+
+                <div class="input-group">
+
+                    <label for="email">Email Address</label>
+
+                    <div class="input-field">
+
+                        <span>📧</span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label for="password">Password</label>
+
+                    <div class="input-field">
+
+                        <span>🔒</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <div class="options">
+
+                    <label for="remember">
+
+                        <input
+                            type="checkbox"
+                            id="remember"
+                            name="remember">
+
+                        Remember Me
+
+                    </label>
+
+                    <a href="#">Forgot Password?</a>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="login-btn">
+
+                    Sign In
+
+                </button>
+
+            </form>
+
+            <p class="register">
+
+                Don't have an account?
+
+                <a href="{{ url_for('register') }}">
+                    Register Now
                 </a>
 
-            </div>
+            </p>
 
-            <!-- Login Button -->
-            <button type="submit" class="btn btn-primary">
-                Login
-            </button>
-
-        </form>
-
-        <p class="register-link">
-            Don't have an account?
-            <a href="{{ url_for('register') }}">Register Here</a>
-        </p>
+        </div>
 
     </div>
 

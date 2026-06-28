@@ -6,110 +6,191 @@ Student Registration | MessVision
 
 {% block content %}
 
-<section class="register-section">
+<section class="login-page">
 
-    <div class="register-card">
+    <!-- Animated Background -->
+    <canvas id="bgCanvas"></canvas>
 
-        <h2>Create Your Account</h2>
+    <div class="overlay"></div>
 
-        <p class="form-subtitle">
-            Register to submit hostel mess feedback and access your dashboard.
-        </p>
+    <div class="login-container">
 
-        <form action="{{ url_for('register') }}" method="POST">
+        <!-- LEFT PANEL -->
 
-            <!-- Full Name -->
-            <div class="form-group">
+        <div class="left-panel">
 
-                <label for="fullname">Full Name</label>
+            <h1>🍽 MessVision</h1>
 
-                <input
-                    type="text"
-                    id="fullname"
-                    name="fullname"
-                    placeholder="Enter your full name"
-                    title="Enter your full name"
-                    autocomplete="name"
-                    required>
+            <h2>Join the Smart Hostel Community</h2>
 
-            </div>
+            <p>
+                Create your account to submit meal feedback,
+                monitor improvements and help make your hostel
+                mess better every day.
+            </p>
 
-            <!-- Email -->
-            <div class="form-group">
+            <div class="features">
 
-                <label for="email">College Email</label>
+                <div class="feature">
+                    ⭐ Submit Daily Meal Ratings
+                </div>
 
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="example@student.edu"
-                    title="Enter your college email address"
-                    autocomplete="email"
-                    required>
+                <div class="feature">
+                    📊 View Feedback Statistics
+                </div>
+
+                <div class="feature">
+                    🍛 Improve Food Quality
+                </div>
 
             </div>
 
-            <!-- Hostel Room -->
-            <div class="form-group">
+        </div>
 
-                <label for="room">Hostel Room Number</label>
+        <!-- REGISTER CARD -->
 
-                <input
-                    type="text"
-                    id="room"
-                    name="room"
-                    placeholder="e.g. A-204"
-                    title="Enter your hostel room number"
-                    required>
+        <div class="login-card">
 
-            </div>
+            <h2>Create Account</h2>
 
-            <!-- Password -->
-            <div class="form-group">
+            <p class="subtitle">
+                Register to access MessVision
+            </p>
 
-                <label for="password">Password</label>
+            <form action="{{ url_for('register') }}" method="POST">
 
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Create a strong password"
-                    title="Password must contain at least 8 characters"
-                    minlength="8"
-                    autocomplete="new-password"
-                    required>
+                <!-- Full Name -->
 
-            </div>
+                <div class="input-group">
 
-            <!-- Confirm Password -->
-            <div class="form-group">
+                    <label for="fullname">Full Name</label>
 
-                <label for="confirm_password">Confirm Password</label>
+                    <div class="input-field">
 
-                <input
-                    type="password"
-                    id="confirm_password"
-                    name="confirm_password"
-                    placeholder="Re-enter your password"
-                    title="Confirm your password"
-                    minlength="8"
-                    autocomplete="new-password"
-                    required>
+                        <span>👤</span>
 
-            </div>
+                        <input
+                            type="text"
+                            id="fullname"
+                            name="fullname"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                            required>
 
-            <!-- Register Button -->
-            <button type="submit" class="btn btn-primary">
-                Create Account
-            </button>
+                    </div>
 
-        </form>
+                </div>
 
-        <p class="login-link">
-            Already have an account?
-            <a href="{{ url_for('login') }}">Login Here</a>
-        </p>
+                <!-- Email -->
+
+                <div class="input-group">
+
+                    <label for="email">College Email</label>
+
+                    <div class="input-field">
+
+                        <span>📧</span>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="student@college.edu"
+                            autocomplete="email"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- Room -->
+
+                <div class="input-group">
+
+                    <label for="room">Hostel Room</label>
+
+                    <div class="input-field">
+
+                        <span>🏠</span>
+
+                        <input
+                            type="text"
+                            id="room"
+                            name="room"
+                            placeholder="A-204"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- Password -->
+
+                <div class="input-group">
+
+                    <label for="password">Password</label>
+
+                    <div class="input-field">
+
+                        <span>🔒</span>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create Password"
+                            minlength="8"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- Confirm Password -->
+
+                <div class="input-group">
+
+                    <label for="confirm_password">
+                        Confirm Password
+                    </label>
+
+                    <div class="input-field">
+
+                        <span>🔑</span>
+
+                        <input
+                            type="password"
+                            id="confirm_password"
+                            name="confirm_password"
+                            placeholder="Confirm Password"
+                            minlength="8"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="login-btn">
+
+                    Create Account
+
+                </button>
+
+            </form>
+
+            <p class="register">
+
+                Already have an account?
+
+                <a href="{{ url_for('login') }}">
+                    Login
+                </a>
+
+            </p>
+
+        </div>
 
     </div>
 
