@@ -1,7 +1,21 @@
 
-from flask import Flask, render_template,request
+from flask import Flask, render_template,request, url_for, flash, session
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+
+# configured database :;-
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///students.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+
+
+with app.app_context():
+    db.create_all()
+
+#
 
 @app.route("/")
 def home():
@@ -11,16 +25,39 @@ def home():
 def login():
 
     if request.method=="POST":
-        # adding later updates 
-        print("Login button clicked!")
+        email = request.form["email"]
+        password = request.form["password"]
+        student=student.query.filter_by(email=email).first()
 
+        if student:
+            #check password
+            if student.password == password:
+                return render_template("/Student_dashboard")
+            else:
+                return "Incorrect password"
+ 
     return render_template("login.html")
+
 
 @app.route("/register",methods=["GET","POST"])
 def register():
     if request.method =="POST":
+        name = request.form["name"]
+        email = request.form["email"]
+        password= request.form["password"]
+         
+        student = student(
+            name = name,
+            email = email,
+            password = password
+        )
+        db.session.add(student)
+        db.session.commit()
+
         print("Register button clicked!")
     return render_template("register.html")
+
+
 
 @app.route("/student_dashboard")
 def student_dashboard():
