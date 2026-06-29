@@ -14,7 +14,11 @@ db = SQLAlchemy(app)
 
 with app.app_context():
     db.create_all()
-
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(100), nullable=False)
 #
 
 @app.route("/")
@@ -35,9 +39,9 @@ def login():
                 return render_template("/Student_dashboard")
             else:
                 return "Incorrect password"
- 
     return render_template("login.html")
 
+# register.html route 
 
 @app.route("/register",methods=["GET","POST"])
 def register():
@@ -45,19 +49,19 @@ def register():
         name = request.form["name"]
         email = request.form["email"]
         password= request.form["password"]
-         
-        student = student(
+        
+        new_student = Student(
             name = name,
             email = email,
             password = password
         )
-        db.session.add(student)
+        db.session.add(Student)
         db.session.commit()
 
         print("Register button clicked!")
     return render_template("register.html")
 
-
+# Student Dashboard
 
 @app.route("/student_dashboard")
 def student_dashboard():
@@ -69,7 +73,7 @@ def admin_dashboard():
 @app.route("/feedback")
 def feedback():
     return render_template("feedback.html")
-@app.route("/student_dashboard")
+@app.route("/feedback_history")
 def feedback_history():
     return render_template("feedback_history.html")
 @app.route("/menu")

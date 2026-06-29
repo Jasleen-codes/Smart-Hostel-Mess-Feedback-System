@@ -1114,3 +1114,123 @@ font-size:2.3rem;
 
     line-height:1.7;
 }
+.dashboard-card h3{
+    font-size:18px;
+    color:#555;
+    margin-bottom:15px;
+}
+
+.dashboard-header h1{
+    font-size:36px;
+    font-weight:700;
+}
+
+/* ==========================================
+   FEEDBACK PAGE
+========================================== */
+
+.feedback-section {
+    width: 100%;
+    max-width: 650px;
+    margin: 60px auto;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.08);
+
+
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+    color: #fff;
+}
+
+.feedback-section h2{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:30px;
+    color:#ffffff;
+}
+
+.feedback-section label{
+    display:block;
+    margin-bottom:8px;
+    font-size:0.95rem;
+    font-weight:600;
+    color:#f5f5f5;
+}
+
+.feedback-section select,
+.feedback-section input,
+.feedback-section textarea{
+    width:100%;
+    padding:14px 16px;
+    margin-bottom:20px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+    font-size:1rem;
+    font-family:'Poppins',sans-serif;
+
+    background:rgba(255,255,255,0.12);
+    color:#fff;
+
+    transition:0.3s ease;
+}
+
+.feedback-section select option{
+    color:#222;
+}
+
+.feedback-section input::placeholder,
+.feedback-section textarea::placeholder{
+    color:rgba(255,255,255,0.65);
+}
+
+.feedback-section input:focus,
+.feedback-section textarea:focus,
+.feedback-section select:focus{
+    background:rgba(255,255,255,0.18);
+    border:1px solid #6C63FF;
+    box-shadow:0 0 15px rgba(108,99,255,0.35);
+}
+
+.feedback-section textarea{
+    resize:vertical;
+    min-height:140px;
+}
+
+.feedback-section button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,#6C63FF,#5A52E0);
+    color:#fff;
+    font-size:1rem;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s ease;
+}
+
+.feedback-section button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(108,99,255,0.4);
+}
+
+.feedback-section button:active{
+    transform:scale(0.98);
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+    .feedback-section{
+        margin:30px 20px;
+        padding:30px 20px;
+    }
+
+    .feedback-section h2{
+        font-size:1.7rem;
+    }
+
+}
