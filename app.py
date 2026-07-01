@@ -41,6 +41,7 @@ class Feedback(db.Model):
 @app.route("/")
 def home():
     return render_template("index.html")
+
 # -------------------------------
 # Student Registration
 # -------------------------------
@@ -89,21 +90,23 @@ def login():
         email = request.form["email"]
         password = request.form["password"]
 
+        # Find student by email
         student = Student.query.filter_by(email=email).first()
 
-        if student:
+        # Check email and password
+        if student and student.password == password:
 
-            if student.password == password:
+            # Store student details in session
+            session["student_id"] = student.id
+            session["student_name"] = student.name
 
-                # Save login session
-                session["student_id"] = student.id
-                session["student_name"] = student.name
+            flash("Login Successful!", "success")
 
-                flash("Login Successful!", "success")
-                return redirect(url_for("student_dashboard"))
+            # Redirect to Student Dashboard
+            return redirect(url_for("student_dashboard"))
 
-            else:
-                flash("Incorrect password.", "danger")
+        elif student:
+            flash("Incorrect password.", "danger")
 
         else:
             flash("Email not registered.", "danger")
@@ -129,7 +132,6 @@ def logout():
 
 @app.route("/student_dashboard")
 def student_dashboard():
-
     if "student_id" not in session:
         flash("Please login first.", "warning")
         return redirect(url_for("login"))
@@ -138,7 +140,6 @@ def student_dashboard():
         "student_dashboard.html",
         student_name=session["student_name"]
     )
-
 
 # -------------------------------
 # Admin Dashboard
