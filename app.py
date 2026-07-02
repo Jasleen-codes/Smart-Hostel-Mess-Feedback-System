@@ -87,32 +87,30 @@ def login():
 
     if request.method == "POST":
 
+        role = request.form["role"]
         email = request.form["email"]
         password = request.form["password"]
 
-        # Find student by email
-        student = Student.query.filter_by(email=email).first()
+        if role == "student":
 
-        # Check email and password
-        if student and student.password == password:
+            student = Student.query.filter_by(email=email).first()
 
-            # Store student details in session
-            session["student_id"] = student.id
-            session["student_name"] = student.name
+            if student and student.password == password:
+                session["student_id"] = student.id
+                session["student_name"] = student.name
+                return redirect(url_for("student_dashboard"))
 
-            flash("Login Successful!", "success")
+            flash("Invalid student credentials")
 
-            # Redirect to Student Dashboard
-            return redirect(url_for("student_dashboard"))
+        elif role == "admin":
 
-        elif student:
-            flash("Incorrect password.", "danger")
+            if email == "admin@messvision.com" and password == "admin123":
+                session["admin"] = True
+                return redirect(url_for("admin_dashboard"))
 
-        else:
-            flash("Email not registered.", "danger")
+            flash("Invalid admin credentials")
 
     return render_template("login.html")
-
 
 # -------------------------------
 # Logout
@@ -138,7 +136,7 @@ def student_dashboard():
 
     return render_template(
         "student_dashboard.html",
-        student_name=session["student_name"]
+        student_name = session.get("student_name")
     )
 
 # -------------------------------
@@ -147,8 +145,11 @@ def student_dashboard():
 
 @app.route("/admin_dashboard")
 def admin_dashboard():
-    return render_template("admin_dashboard.html")
 
+    if "admin" not in session:
+        return redirect(url_for("admin_login"))
+
+    return render_template("admin_dashboard.html")
 
 # -------------------------------
 # Feedback
@@ -181,6 +182,25 @@ def feedback():
 # -------------------------------
 # Other Pages
 # -------------------------------
+#-- Admin_login
+@app.route("/admin_login", methods=["GET", "POST"])
+def admin_login():
+
+    if request.method == "POST":
+
+        username = request.form["username"]
+        password = request.form["password"]
+
+        # Temporary credentials
+        if username == "admin" and password == "admin123":
+
+            session["admin"] = username
+
+            return redirect(url_for("admin_dashboard"))
+
+        flash("Invalid username or password")
+
+    return render_template("admin_login.html")
 
 @app.route("/feedback_history")
 def feedback_history():
@@ -199,7 +219,11 @@ def reports():
 
 @app.route("/profile")
 def profile():
-    return render_template("profile.html")
+    if "student_id" not in session:
+        return redirect(url_for("login"))
+    student = Student.query.get(session["student_id"])
+
+    return render_template("profile.html", student=student)
 
 
 @app.route("/setting")

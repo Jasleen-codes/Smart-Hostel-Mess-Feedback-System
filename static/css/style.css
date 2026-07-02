@@ -1919,3 +1919,38 @@ font-size:2.3rem;
 }
 
 }
+.input-field select {
+    width: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 15px;
+    color: #333;
+    padding: 12px 10px;
+    appearance: none;
+    cursor: pointer;
+}
+
+.input-field select option {
+    color: #333;
+}
+
+/*  Student Profile*/
+.profile-section {
+    display:flex;
+    justify-content: center;
+    min-width: none;
+    color: white;
+    
+
+}
+.div{
+    color: white;
+    text-decoration: dotted;
+
+}
+.profile-item{
+    color: white;
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+}

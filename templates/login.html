@@ -61,6 +61,7 @@ Student Login | MessVision
 
             <form method="POST">
 
+                <!-- Email -->
                 <div class="input-group">
 
                     <label for="email">Email Address</label>
@@ -80,6 +81,7 @@ Student Login | MessVision
 
                 </div>
 
+                <!-- Password -->
                 <div class="input-group">
 
                     <label for="password">Password</label>
@@ -99,6 +101,30 @@ Student Login | MessVision
 
                 </div>
 
+                <!-- Login Role -->
+                <div class="input-group">
+
+                    <label for="role">Login As</label>
+
+                    <div class="input-field">
+
+                        <span>👤</span>
+
+                        <select
+                            id="role"
+                            name="role"
+                            required>
+
+                            <option value="student">Student</option>
+                            <option value="admin">Admin</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- Remember Me -->
                 <div class="options">
 
                     <label>
@@ -115,6 +141,7 @@ Student Login | MessVision
 
                 </div>
 
+                <!-- Login Button -->
                 <button
                     type="submit"
                     class="login-btn">

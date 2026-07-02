@@ -1,13 +1,36 @@
 {% extends 'base.html' %}
 
+{% block title %}
+Student Profile | MessVision
+{% endblock %}
+
 {% block content %}
 
-<h2>Student Profile</h2>
+<section class="profile-section">
 
-<p>Name : Student Name</p>
+    <div class="profile-card">
 
-<p>Email : student@email.com</p>
+        <h2>👤 Student Profile</h2>
 
-<p>Room : A-201</p>
+        <hr>
+
+        <div class="profile-item">
+            <strong>Name:</strong>
+            <span>{{ student.name }}</span>
+        </div>
+
+        <div class="profile-item">
+            <strong>Email:</strong>
+            <span>{{ student.email }}</span>
+        </div>
+
+        <div class="profile-item">
+            <strong>Room Number:</strong>
+            <span>{{ student.room_number }}</span>
+        </div>
+
+    </div>
+
+</section>
 
 {% endblock %}
